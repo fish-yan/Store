@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "78f49d86-b849-6042-b511-14fd731c19d9++5590",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "78f49d86-b849-6042-b511-14fd731c19d9++5590" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "78f49d86-b849-6042-b511-14fd731c19d9++5590" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "72244633-5737-414E-AD66-34755E03CE8B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "78f49d86-b849-6042-b511-14fd731c19d9++5590" : "StoreReception"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "StoreReception",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "StoreReception.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/192.168.0.254\/svn\/cjmapp",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "78f49d86-b849-6042-b511-14fd731c19d9++5590"
+    }
+  ]
+}

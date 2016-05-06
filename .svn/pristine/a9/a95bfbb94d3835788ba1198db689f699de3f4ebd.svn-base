@@ -1,0 +1,120 @@
+//
+//  StoreReception PrefixHeader.pch
+//  StoreReception
+//
+//  Created by cjm-ios on 15/5/21.
+//  Copyright (c) 2015年 cjm-ios. All rights reserved.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
+//define this constant if you want to use Masonry without the 'mas_' prefix
+#define MAS_SHORTHAND
+
+//define this constant if you want to enable auto-boxing for default syntax
+#define MAS_SHORTHAND_GLOBALS
+
+#import "Masonry.h"
+
+#endif
+#define degreesToRadians(degrees) (M_PI * degrees / 180.0)
+
+
+//静态管理
+//判断功能为二维码或车牌识别
+#define QRCODE @"QRCODE"
+#define PLATERECOGNIZE @"PLATERECOGNIZE"
+#define SZMJ_ID @"402883c0434365a7014346c7cc6f5e65"  //苏州名骏公司id
+#define GH_ID @"297edeb34e6391ff014e957f5aae3ff9"   //国合公司id  
+//检查更新
+#define Check_Action @"get_download_list_by_mac"
+#define App_id @"CYJDG_IOS" 
+
+//缓存管理
+#define KEY_TOKEN @"KEY_TOKEN"
+#define PRINT_INFO @"PRINT_INFO"
+#define SHOP_CART @"SHOP_CART"
+#define USER_INFO @"USER_INFO"
+#define USER_ACCOUNT @"USER_ACCOUNT"
+#define REPAIR_CONTENT @"REPAIR_CONTENT"
+#define LODING_MSG @"正在加载数据,请稍候..."
+#define LOGING_MSG @"正在验证帐号，请稍候..."
+#define NETWORK_ERRO @"网络异常，请重试"
+#define LICENSE_REG @"正在识别，请稍候..."
+#define LICENSE_REG_ERRO @"识错错误，请重试..."
+
+//颜色管理
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+//屏宽高
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+
+//接口头部
+//#define URL_HEADER @"http://61.186.130.102:8013/api/"  //外网测试
+//#define URL_HEADER @"http://192.168.0.177:806/api/"  //内网测试
+#define URL_HEADER @"http://61.186.130.102:805/api/"  //正式环境
+#define UPDATE_HEADER @"http://61.186.130.102:28671/"   //检查更新
+//#define URL_HEADER @"http://192.168.0.152:7788/api/"   //小吕联调
+
+//接口Action
+#define LOGIN @"UserLogin"  //登录
+#define GetSaleList @"GetSaleList" //获取订单
+#define GetSaleInfo @"GetSaleInfo"  //获取订单详情
+#define GetCar @"GetCar" //获取车辆
+#define GetProduct @"GetProduct"  //获取商品 不带各店库存
+#define GetProductAll @"GetProductAll"  //获取所有商品，包含0库存,单店，不是公司下所有门店
+#define GetProject @"GetProject"   //获取项目
+#define GetProductType @"GetProductType" //获取商品类型列表
+#define AddSaleProduct @"AddSaleProduct"  //汽车精品开单
+#define GetValueCard @"GetValueCard"  //获取充值卡详情
+#define GetPackageCard @"GetPackageCard"  //获取套餐卡详情
+#define GetPackageCardUsedRecord @"GetPackageCardUsedRecord"  //获取套餐卡消费记录
+#define GetValueCardUsedRecord @"GetValueCardUsedRecord"  //获取充值卡消费记录
+#define AddPackageCardPos @"AddPackageCardPos"   //项目刷卡
+#define GetAdopter @"GetAdopter"   //获取车主领养情况
+#define AddAdopter @"AddAdopter"   //领养
+#define AddNewMaintain @"AddNewMaintain"   //维修接车单
+#define AddSaleProject @"AddSaleProject"  //服务开单
+#define GetProjectTypes @"GetProjectTypes" //获取项目一级分类
+#define GetProductByCompany @"GetProductByCompany" //查询商品
+#define AddAdopter @"AddAdopter" //提交用户全部信息   用于补录信息
+#define GetAdopter @"GetAdopter" //获取用户全部信息   用于补录信息
+#define GetBrand @"GetBrand"  //获取车品s牌
+#define GetSerinesByBrand   @"GetSerinesByBrand"   //获取车品牌的系列
+#define GetCarName  @"GetCarName"   //获取车型列表
+#define GetProSumByCompany @"GetProSumByCompany" //获取各店库存
+#define ReapirInsurance @"ReapirInsurance"  //获取保险公司
+#define ReapirLeaguerType @"ReapirLeaguerType"  //获取客户类型
+#define ReapirServer @"ReapirServer"  //获取服务类型
+#define RepairInfobyCarNum @"RepairInfobyCarNum"  //根据车牌获取相关信息   用于接车单
+#define UpdateVersion @"cjmDataServices/data/dataset.do"    //版本检查更新
+#define GetWashCarItem @"GetWashCarItem"  //查询洗车类型
+#define AddWashCar @"AddWashCar"   //提交洗车单
+#define GetProSellList @"GetProSellList"   //历史商品销售价格
+#define GetWashCarCard @"GetWashCarCard"  //根据车牌获取洗车套餐卡
+#define UnRepairList @"UnRepairList"    //查询接车单列表(草稿，已提交)
+#define SubmitCarStatus @"SubmitCarStatus"   //提交维修单到代派工状态
+#define RepairItemDesc @"RepairItemDesc"  //派工时接车单信息
+#define RepairUserList @"RepairUserList"   //维修技工列表
+#define RepairPerson @"RepairPerson"   //维修派工
+#define GetPrintSpotsController @"GetPrintSpots"  //获取打印地址
+#define FinishRepair @"FinishRepair" //完成单个项目
+#define ReapirServerItem @"ReapirServerItem"   //获取维修单项目列表
+#define FinishRepair @"FinishRepair"  //维修完工－项目完工
+#define FinishRepairLast @"FinishRepairLast"  //维修完工－订单完工
+#define GetPackageCardByCarNum @"GetPackageCardByCarNum"   //获取指定车牌号是否有套餐卡
+#define AddCarNum @"AddCarNum"   //快速洗车 车牌识别
+#define GetCarNum @"GetCarNum"  //扫描清单
+#define RepairingList  @"RepairingList"   //增项单中查询维修单
+#define AddMaintainExtra @"AddMaintainExtra"   //提交增项单
+#define GetCarInfoList @"GetCarInfoList" //获取车辆信息列表
+#define SubmitCarInfo @"SubmitCarInfo" //提交车辆信息
+#define GetMember @"GetMember" //车辆信息关联客户

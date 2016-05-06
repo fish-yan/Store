@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StoreReception/ItemBilling/PickUpCarViewController.m"
+            timestampString = "477999983.915052"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1380"
+            endingLineNumber = "1380"
+            landmarkName = "-addNewMaintain"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StoreReception/MembershipCard/TCardViewController.m"
+            timestampString = "474542110.152788"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "375"
+            endingLineNumber = "375"
+            landmarkName = "-addPackageCardPos"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[TCardViewController addPackageCardPos]"
+                  moduleName = "StoreReception"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///%E5%B7%A5%E4%BD%9C/%E8%BD%A6%E8%B5%A2%E5%AE%B6%E5%AF%BC%E8%B4%ADAPP/app/StoreReception/StoreReception/MembershipCard/TCardViewController.m"
+                  timestampString = "478526318.736672"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "375"
+                  endingLineNumber = "375"
+                  offsetFromSymbolStart = "1084">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__40-[TCardViewController addPackageCardPos]_block_invoke"
+                  moduleName = "StoreReception"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///%E5%B7%A5%E4%BD%9C/%E8%BD%A6%E8%B5%A2%E5%AE%B6%E5%AF%BC%E8%B4%ADAPP/app/StoreReception/StoreReception/MembershipCard/TCardViewController.m"
+                  timestampString = "478526318.736838"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "375"
+                  endingLineNumber = "375"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StoreReception/public/SharedBlueToothManager.m"
+            timestampString = "478508878.064522"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "-printWashNotes"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StoreReception/public/SharedBlueToothManager.m"
+            timestampString = "478510090.646025"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "394"
+            endingLineNumber = "394"
+            landmarkName = "-printServiceNotes"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

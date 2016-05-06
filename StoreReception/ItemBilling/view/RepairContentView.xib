@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RepairContentView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="仪表灯光、故障灯" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ctk-Uv-QWW">
+                    <rect key="frame" x="11" y="20" width="239" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Jg-qf-gS5">
+                    <rect key="frame" x="11" y="51" width="298" height="1"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Api-N3-tvM"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M13-N3-9BB">
+                    <rect key="frame" x="255" y="12" width="65" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="65" id="Hs5-pB-j0W"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="删除">
+                        <color key="titleColor" red="0.15686274509803921" green="0.47058823529411764" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="delClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Cga-9y-hgD"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Ctk-Uv-QWW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="11" id="0mn-Vd-Afo"/>
+                <constraint firstItem="M13-N3-9BB" firstAttribute="leading" secondItem="Ctk-Uv-QWW" secondAttribute="trailing" constant="5" id="8Dj-a4-2ep"/>
+                <constraint firstAttribute="trailing" secondItem="0Jg-qf-gS5" secondAttribute="trailing" constant="11" id="J4a-aY-nAl"/>
+                <constraint firstAttribute="bottom" secondItem="0Jg-qf-gS5" secondAttribute="bottom" id="XLd-bJ-KZe"/>
+                <constraint firstAttribute="trailing" secondItem="M13-N3-9BB" secondAttribute="trailing" id="ctS-Id-Vx6"/>
+                <constraint firstItem="Ctk-Uv-QWW" firstAttribute="centerY" secondItem="M13-N3-9BB" secondAttribute="centerY" constant="-0.5" id="gKs-SE-uts"/>
+                <constraint firstItem="Ctk-Uv-QWW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="19.5" id="gN5-Sv-NiY"/>
+                <constraint firstItem="0Jg-qf-gS5" firstAttribute="top" secondItem="Ctk-Uv-QWW" secondAttribute="bottom" constant="19.5" id="iax-Ak-Vq0"/>
+                <constraint firstItem="0Jg-qf-gS5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="11" id="le7-L1-vrl"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bottomLineV" destination="0Jg-qf-gS5" id="qkH-8o-ebH"/>
+                <outlet property="contentL" destination="Ctk-Uv-QWW" id="TQt-ux-N6A"/>
+            </connections>
+            <point key="canvasLocation" x="284" y="374"/>
+        </view>
+    </objects>
+</document>

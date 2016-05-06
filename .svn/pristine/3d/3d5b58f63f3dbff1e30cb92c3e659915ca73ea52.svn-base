@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SearchView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="选择开始时间" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aQq-6g-zmx">
+                    <rect key="frame" x="11" y="13" width="144" height="35"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="选择结束时间" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BIB-Po-vHF">
+                    <rect key="frame" x="166" y="13" width="143" height="35"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qTg-z1-myB">
+                    <rect key="frame" x="160" y="59" width="75" height="24"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qq4-7h-yHs" userLabel="serviceButton">
+                            <rect key="frame" x="0.0" y="0.0" width="75" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="75" id="YpN-lM-XPA"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="-54" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="46" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="服务单" image="选中.png">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="serviceClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="K55-Bq-DBP"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Qq4-7h-yHs" secondAttribute="bottom" id="LCu-NV-zIf"/>
+                        <constraint firstItem="Qq4-7h-yHs" firstAttribute="top" secondItem="qTg-z1-myB" secondAttribute="top" id="MnX-5D-Ix3"/>
+                        <constraint firstItem="Qq4-7h-yHs" firstAttribute="centerX" secondItem="qTg-z1-myB" secondAttribute="centerX" id="dg2-f4-iKS"/>
+                        <constraint firstItem="Qq4-7h-yHs" firstAttribute="centerY" secondItem="qTg-z1-myB" secondAttribute="centerY" id="mg5-fW-elB"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HOG-hh-C2O">
+                    <rect key="frame" x="11" y="59" width="75" height="24"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtI-Wl-EZp" userLabel="washButton">
+                            <rect key="frame" x="0.0" y="0.0" width="75" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="75" id="Ln6-ST-EC8"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="-54" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="45" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="洗车单" image="选中.png">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="washClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="EW9-65-j02"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="jtI-Wl-EZp" firstAttribute="top" secondItem="HOG-hh-C2O" secondAttribute="top" id="AN7-kD-6xH"/>
+                        <constraint firstAttribute="bottom" secondItem="jtI-Wl-EZp" secondAttribute="bottom" id="AnV-2w-2PQ"/>
+                        <constraint firstItem="jtI-Wl-EZp" firstAttribute="centerY" secondItem="HOG-hh-C2O" secondAttribute="centerY" id="SqU-c6-6cR"/>
+                        <constraint firstItem="jtI-Wl-EZp" firstAttribute="centerX" secondItem="HOG-hh-C2O" secondAttribute="centerX" id="kX5-Fk-Vg2"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uku-DK-UQa">
+                    <rect key="frame" x="11" y="94" width="75" height="24"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXs-3f-gqK" userLabel="increaseButton">
+                            <rect key="frame" x="0.0" y="0.0" width="75" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="75" id="4Y5-A3-Zze"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="-54" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="45" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="增项单" image="选中.png">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="increaseClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ifd-K9-ee3"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="WXs-3f-gqK" secondAttribute="bottom" id="7ue-s5-7tV"/>
+                        <constraint firstItem="WXs-3f-gqK" firstAttribute="centerY" secondItem="uku-DK-UQa" secondAttribute="centerY" id="Dw1-ZZ-NTe"/>
+                        <constraint firstItem="WXs-3f-gqK" firstAttribute="top" secondItem="uku-DK-UQa" secondAttribute="top" id="faw-L1-aav"/>
+                        <constraint firstItem="WXs-3f-gqK" firstAttribute="centerX" secondItem="uku-DK-UQa" secondAttribute="centerX" id="ntB-K6-9Ti"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ak-9O-ESX">
+                    <rect key="frame" x="86" y="59" width="74" height="24"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OiB-v3-aEc" userLabel="itemButton">
+                            <rect key="frame" x="-1" y="0.0" width="75" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="75" id="YJf-rd-5Mp"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="-54" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="46" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="商品单" image="选中.png">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="itemClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="llA-hB-bwd"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="OiB-v3-aEc" firstAttribute="centerX" secondItem="1Ak-9O-ESX" secondAttribute="centerX" id="UNi-kY-Zmd"/>
+                        <constraint firstAttribute="bottom" secondItem="OiB-v3-aEc" secondAttribute="bottom" id="ngO-S2-yVf"/>
+                        <constraint firstItem="OiB-v3-aEc" firstAttribute="top" secondItem="1Ak-9O-ESX" secondAttribute="top" id="pN4-3R-Ar9"/>
+                        <constraint firstItem="OiB-v3-aEc" firstAttribute="centerY" secondItem="1Ak-9O-ESX" secondAttribute="centerY" id="zkJ-W8-Z7m"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Igq-AL-3Hk">
+                    <rect key="frame" x="235" y="59" width="74" height="24"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Khw-kK-CZX" userLabel="pickupButton">
+                            <rect key="frame" x="-1" y="0.0" width="75" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="75" id="97g-Z6-MYA"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <inset key="titleEdgeInsets" minX="-54" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="46" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="维修单" image="选中.png">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="pickClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="jx8-fi-bBv"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Khw-kK-CZX" secondAttribute="bottom" id="156-2A-jYn"/>
+                        <constraint firstItem="Khw-kK-CZX" firstAttribute="top" secondItem="Igq-AL-3Hk" secondAttribute="top" id="hMH-5o-3Qr"/>
+                        <constraint firstItem="Khw-kK-CZX" firstAttribute="centerX" secondItem="Igq-AL-3Hk" secondAttribute="centerX" id="k6a-Zj-OF8"/>
+                        <constraint firstItem="Khw-kK-CZX" firstAttribute="centerY" secondItem="Igq-AL-3Hk" secondAttribute="centerY" id="zzt-a8-Ytk"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qb-oL-Oih">
+                    <rect key="frame" x="11" y="129" width="298" height="30"/>
+                    <color key="backgroundColor" red="0.18431372549019609" green="0.47843137254901957" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="jjR-FT-Gav"/>
+                    </constraints>
+                    <state key="normal" title="查询">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="searchClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="NZW-ro-YjK"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="HOG-hh-C2O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="11" id="4ag-Ta-6Ns"/>
+                <constraint firstItem="qTg-z1-myB" firstAttribute="leading" secondItem="1Ak-9O-ESX" secondAttribute="trailing" id="8FM-5M-Ih5"/>
+                <constraint firstAttribute="trailing" secondItem="2qb-oL-Oih" secondAttribute="trailing" constant="11" id="8vW-Rq-96m"/>
+                <constraint firstItem="HOG-hh-C2O" firstAttribute="top" secondItem="aQq-6g-zmx" secondAttribute="bottom" constant="11" id="9wt-rZ-Sgd"/>
+                <constraint firstItem="qTg-z1-myB" firstAttribute="height" secondItem="HOG-hh-C2O" secondAttribute="height" id="BDO-8T-1Vl"/>
+                <constraint firstItem="BIB-Po-vHF" firstAttribute="leading" secondItem="aQq-6g-zmx" secondAttribute="trailing" constant="11" id="CPd-My-nOj"/>
+                <constraint firstItem="1Ak-9O-ESX" firstAttribute="leading" secondItem="HOG-hh-C2O" secondAttribute="trailing" id="F5u-eT-Bw8"/>
+                <constraint firstItem="uku-DK-UQa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="11" id="GMl-b5-S88"/>
+                <constraint firstItem="2qb-oL-Oih" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="11" id="HYN-3a-56O"/>
+                <constraint firstAttribute="trailing" secondItem="Igq-AL-3Hk" secondAttribute="trailing" constant="11" id="KMq-Wm-SNn"/>
+                <constraint firstItem="uku-DK-UQa" firstAttribute="height" secondItem="HOG-hh-C2O" secondAttribute="height" id="L0P-g6-Rgk"/>
+                <constraint firstItem="BIB-Po-vHF" firstAttribute="height" secondItem="aQq-6g-zmx" secondAttribute="height" id="LVJ-2P-nig"/>
+                <constraint firstItem="qTg-z1-myB" firstAttribute="centerY" secondItem="1Ak-9O-ESX" secondAttribute="centerY" id="M3y-Q6-xlt"/>
+                <constraint firstItem="BIB-Po-vHF" firstAttribute="centerY" secondItem="aQq-6g-zmx" secondAttribute="centerY" id="PKc-st-upI"/>
+                <constraint firstItem="1Ak-9O-ESX" firstAttribute="width" secondItem="HOG-hh-C2O" secondAttribute="width" id="PpG-SU-EkN"/>
+                <constraint firstItem="aQq-6g-zmx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="11" id="QrR-Hz-ebC"/>
+                <constraint firstItem="Igq-AL-3Hk" firstAttribute="height" secondItem="HOG-hh-C2O" secondAttribute="height" id="ReL-Vi-0co"/>
+                <constraint firstItem="Igq-AL-3Hk" firstAttribute="centerY" secondItem="qTg-z1-myB" secondAttribute="centerY" id="Ty0-qO-Jfh"/>
+                <constraint firstItem="1Ak-9O-ESX" firstAttribute="height" secondItem="HOG-hh-C2O" secondAttribute="height" id="Zeh-QY-6jp"/>
+                <constraint firstItem="aQq-6g-zmx" firstAttribute="width" secondItem="BIB-Po-vHF" secondAttribute="width" id="af6-tG-27X"/>
+                <constraint firstAttribute="trailing" secondItem="BIB-Po-vHF" secondAttribute="trailing" constant="11" id="cQ3-UH-qlc"/>
+                <constraint firstItem="1Ak-9O-ESX" firstAttribute="centerY" secondItem="HOG-hh-C2O" secondAttribute="centerY" id="diM-Lv-pPb"/>
+                <constraint firstItem="uku-DK-UQa" firstAttribute="top" secondItem="HOG-hh-C2O" secondAttribute="bottom" constant="11" id="iAB-Sl-ck4"/>
+                <constraint firstItem="uku-DK-UQa" firstAttribute="width" secondItem="HOG-hh-C2O" secondAttribute="width" id="jeU-2y-Qsx"/>
+                <constraint firstItem="2qb-oL-Oih" firstAttribute="top" secondItem="uku-DK-UQa" secondAttribute="bottom" constant="11" id="sZa-NK-ae8"/>
+                <constraint firstItem="Igq-AL-3Hk" firstAttribute="leading" secondItem="qTg-z1-myB" secondAttribute="trailing" id="uW8-xh-AID"/>
+                <constraint firstItem="qTg-z1-myB" firstAttribute="width" secondItem="HOG-hh-C2O" secondAttribute="width" id="vfd-5t-sLb"/>
+                <constraint firstItem="aQq-6g-zmx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13" id="vxG-yb-dZL"/>
+                <constraint firstAttribute="bottom" secondItem="2qb-oL-Oih" secondAttribute="bottom" constant="11" id="wF7-Yj-WZO"/>
+                <constraint firstItem="Igq-AL-3Hk" firstAttribute="width" secondItem="HOG-hh-C2O" secondAttribute="width" id="wg0-dE-YZ5"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="begainTextField" destination="aQq-6g-zmx" id="lIN-bk-Vce"/>
+                <outlet property="endTextField" destination="BIB-Po-vHF" id="LJ6-0o-Jm7"/>
+                <outlet property="increaseBtn" destination="WXs-3f-gqK" id="FwO-r6-TgU"/>
+                <outlet property="itemBtn" destination="OiB-v3-aEc" id="TeZ-lz-Rvj"/>
+                <outlet property="pickBtn" destination="Khw-kK-CZX" id="OGc-6n-bAk"/>
+                <outlet property="serviceBtn" destination="Qq4-7h-yHs" id="9jD-A2-zxU"/>
+                <outlet property="washBtn" destination="jtI-Wl-EZp" id="CTQ-7a-wEz"/>
+            </connections>
+            <point key="canvasLocation" x="-103" y="303"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="选中.png" width="24" height="24"/>
+    </resources>
+</document>

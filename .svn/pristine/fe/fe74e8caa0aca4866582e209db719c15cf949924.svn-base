@@ -1,0 +1,394 @@
+//
+//  HomeViewController.m
+//  Repair
+//
+//  Created by Kassol on 15/11/16.
+//  Copyright © 2015年 CJM. All rights reserved.
+//
+
+#import "HomeViewController.h"
+#import "HttpClient.h"
+#import "MBProgressHUD.h"
+#import "JDStatusBarNotification.h"
+#import "Utils.h"
+#import "UILabel+FlickerNumber.h"
+#import "MJRefresh.h"
+#import "CarCollectionViewCell.h"
+#import "CarInfoViewController.h"
+#import "RepairViewController.h"
+#import "DateTools.h"
+#import "CommitViewController.h"
+
+@interface HomeViewController ()<UITextFieldDelegate> {
+    NSDictionary *userInfo;
+    NSString *userId;
+    NSString *token;
+    NSString *storeId;
+}
+@property (weak, nonatomic) IBOutlet UILabel *preOrderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *waitingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *workingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *finishLabel;
+@property (weak, nonatomic) IBOutlet UITextField *searchField;
+@property (weak, nonatomic) IBOutlet UIView *searchContainerView;
+
+@property (strong, nonatomic) MJRefreshHeader *myHeader;
+@property (strong, nonatomic) MJRefreshFooter *myFooter;
+
+@property (strong, nonatomic) NSMutableArray *resultArray;
+@property (assign, nonatomic) NSInteger pageIndex;
+@property (assign, nonatomic) NSInteger pageSum;
+
+@property (strong, nonatomic) NSString *status;
+
+@property (weak, nonatomic) IBOutlet UIView *preOrderView;
+@property (weak, nonatomic) IBOutlet UIView *waitingView;
+@property (weak, nonatomic) IBOutlet UIView *workingView;
+@property (weak, nonatomic) IBOutlet UIView *finishView;
+
+@property (strong, nonatomic) NSIndexPath *selectedIndexPath;
+
+@property (strong, nonatomic) NSDate *startDate;
+@property (strong, nonatomic) NSDate *endDate;
+
+@end
+
+@implementation HomeViewController
+
+-(void)initHeader
+{
+    self.navigationController.navigationBar.barTintColor = UIColorFromRGB(0x2878d2);
+    [self.navigationController.navigationBar setTranslucent:NO];
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    self.title = @"透明车间";
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftBtn setFrame:CGRectMake(0, 0, 11, 21)];
+    [leftBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+    [leftBtn setBackgroundImage:[UIImage imageNamed:@"返回.png"] forState:UIControlStateNormal];
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithCustomView:leftBtn];
+    self.navigationItem.leftBarButtonItem = leftItem;
+}
+
+- (void)backAction {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [JDStatusBarNotification setDefaultStyle:^JDStatusBarStyle *(JDStatusBarStyle *style) {
+        style.barColor = REDCOLOR;
+        style.textColor = [UIColor whiteColor];
+        return style;
+    }];
+    self.searchContainerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    [self initHeader];
+    userInfo = [[NSUserDefaults standardUserDefaults] objectForKey:USER_INFO];
+
+    UITapGestureRecognizer *preOrderTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(preOrderViewDidTouch:)];
+    UITapGestureRecognizer *waitingTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(waitingViewDidTouch:)];
+    UITapGestureRecognizer *workingTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(workingViewDidTouch:)];
+    UITapGestureRecognizer *finishTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(finishViewDidTouch:)];
+    [_preOrderView addGestureRecognizer:preOrderTap];
+    [_waitingView addGestureRecognizer:waitingTap];
+    [_workingView addGestureRecognizer:workingTap];
+    [_finishView addGestureRecognizer:finishTap];
+    
+    _shouldRefresh = NO;
+    
+    _status = WAITING;
+    
+    [self initHeadersAndFooters];
+    
+    _collectionView.header = _myHeader;
+    [_collectionView.header beginRefreshing];
+
+}
+
+- (void)requestTopData {
+    userId = [userInfo objectForKey:@"UserId"];
+    token = [userInfo objectForKey:@"Token"];
+    storeId = [userInfo objectForKey:@"StoreId"];
+    NSMutableDictionary *option = [NSMutableDictionary dictionary];
+    NSMutableDictionary *userToken = [NSMutableDictionary dictionary];
+    [userToken setObject:userId forKey:@"UserId"];
+    [userToken setObject:token forKey:@"Token"];
+    [option setObject:storeId forKey:@"StoreId"];
+    [option setObject:userToken forKey:@"UserToken"];
+    
+    [[HttpClient sharedHttpClient] getCarNumbers:option success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@", responseObject);
+        NSDictionary *response = responseObject;
+        if ([[response objectForKey:@"Code"] integerValue] == 0) {
+            NSDictionary *result = [response objectForKey:@"Result"];
+            [_preOrderLabel fn_setNumber:[NSNumber numberWithInt:[[result objectForKey:@"RepairIsCheck"] intValue]]];
+            [_waitingLabel fn_setNumber:[NSNumber numberWithInt:[[result objectForKey:@"UnRepairCount"] intValue]]];
+            [_workingLabel fn_setNumber:[NSNumber numberWithInt:[[result objectForKey:@"RepairIsWorking"] intValue]]];
+            [_finishLabel fn_setNumber:[NSNumber numberWithInt:[[result objectForKey:@"FinishCount"] intValue]]];
+        } else {
+            
+            [JDStatusBarNotification showWithStatus:[(NSDictionary *)responseObject objectForKey:@"Message"] dismissAfter:2];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+        
+        [JDStatusBarNotification showWithStatus:ERROR_CONNECTION dismissAfter:2];
+    }];
+}
+
+- (void)initHeadersAndFooters {
+    [self requestTopData];
+    NSMutableDictionary *option = [NSMutableDictionary dictionary];
+    NSMutableDictionary *userToken = [NSMutableDictionary dictionary];
+    [userToken setObject:userId forKey:@"UserId"];
+    [userToken setObject:token forKey:@"Token"];
+    [option setObject:storeId forKey:@"StoreId"];
+    [option setObject:userToken forKey:@"UserToken"];
+    [option setObject:@"20" forKey:@"PageSize"];
+    _resultArray = [NSMutableArray array];
+    _myHeader = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+        _pageIndex = 1;
+        [option setObject:[NSString stringWithFormat:@"%ld", (long)_pageIndex] forKey:@"PageIndex"];
+        _collectionView.footer = nil;
+        [option setObject:userId forKey:@"ServiceConsultantID"];
+        [option setObject:_searchField.text forKey:@"CarNum"];
+        [_resultArray removeAllObjects];
+        [self readItemDataSouresWithOption:option];
+    }];
+    
+    _myFooter = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        ++_pageIndex;
+        if (_pageIndex <= _pageSum) {
+            
+            [option setObject:[NSString stringWithFormat:@"%ld", (long)_pageIndex] forKey:@"PageIndex"];
+            
+            [self readItemDataSouresWithOption:option];
+        } else {
+            _pageIndex = 1;
+            [_myFooter endRefreshingWithNoMoreData];
+        }
+    }];
+}
+
+- (void)readItemDataSouresWithOption:(NSMutableDictionary *)option{
+
+    [[HttpClient sharedHttpClient] getListWithStatus:_status option:option success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [_myHeader endRefreshing];
+        [_myFooter endRefreshing];
+        NSLog(@"%@", responseObject);
+        if ([[(NSDictionary *)responseObject objectForKey:@"Code"] integerValue] == 0) {
+            _collectionView.footer = _myFooter;
+            NSDictionary *result = [(NSDictionary *)responseObject objectForKey:@"Result"];
+            _resultArray = [_resultArray arrayByAddingObjectsFromArray:[result objectForKey:@"repairCarList"]].mutableCopy;
+            
+            _pageSum = [[result objectForKey:@"PageCount"] integerValue];
+            if (_pageIndex == _pageSum) {
+                [_myFooter endRefreshingWithNoMoreData];
+            } else {
+                [_myFooter resetNoMoreData];
+            }
+            
+            _collectionView.delegate = self;
+            _collectionView.dataSource = self;
+            [_collectionView reloadData];
+        } else {
+            [JDStatusBarNotification showWithStatus:[(NSDictionary *)responseObject objectForKey:@"Message"] dismissAfter:2];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [_myHeader endRefreshing];
+        NSLog(@"%@", error);
+        [JDStatusBarNotification showWithStatus:ERROR_CONNECTION dismissAfter:2];
+    }];
+
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+        _searchContainerView.frame = CGRectMake((kScreenWidth-100)/2, _searchContainerView.frame.origin.y, kScreenWidth-100, _searchContainerView.frame.size.height);
+        [self.view layoutIfNeeded];
+    if (_shouldRefresh) {
+        [_collectionView.header beginRefreshing];
+    }
+    _shouldRefresh = NO;
+    
+    self.navigationController.navigationBarHidden = NO;
+    
+}
+
+- (void)preOrderViewDidTouch:(id)sender {
+    if ([_collectionView.header isRefreshing]) {
+        [_collectionView.header endRefreshing];
+    }
+    _status = PREORDER;
+    _collectionView.delegate = nil;
+    _collectionView.dataSource = nil;
+    [_collectionView.header beginRefreshing];
+}
+
+- (void)waitingViewDidTouch:(id)sender {
+    if ([_collectionView.header isRefreshing]) {
+        [_collectionView.header endRefreshing];
+    }
+    _status = WAITING;
+    _collectionView.delegate = nil;
+    _collectionView.dataSource = nil;
+    [_collectionView.header beginRefreshing];
+}
+
+- (void)workingViewDidTouch:(id)sender {
+    if ([_collectionView.header isRefreshing]) {
+        [_collectionView.header endRefreshing];
+    }
+    _status = WORKING;
+    _collectionView.delegate = nil;
+    _collectionView.dataSource = nil;
+    [_collectionView.header beginRefreshing];
+}
+
+- (void)finishViewDidTouch:(id)sender {
+    if ([_collectionView.header isRefreshing]) {
+        [_collectionView.header endRefreshing];
+    }
+    _status = FINISH;
+    _collectionView.delegate = nil;
+    _collectionView.dataSource = nil;
+    [_collectionView.header beginRefreshing];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"Waiting"]) {
+        CarInfoViewController *toView = segue.destinationViewController;
+        toView.carID = [_resultArray[_selectedIndexPath.row] objectForKey:@"ID"];
+        toView.carInfoType = _status;
+        NSString *sourceID = [[_resultArray objectAtIndex:_selectedIndexPath.row] objectForKey:@"OrderStatus"];
+        if (sourceID == nil || ![sourceID containsString:@"增项单"]) {
+            toView.isExtended = NO;
+        } else {
+            toView.isExtended = YES;
+        }
+        toView.sender = self;
+    }
+    if ([segue.identifier isEqualToString:@"Finish"]) {
+
+        RepairViewController *toView = segue.destinationViewController;
+        NSString *isChecked = [[_resultArray objectAtIndex:_selectedIndexPath.row] objectForKey:@"IsChecked"];
+        
+        toView.isChecked = isChecked;
+        toView.sender = self;
+        toView.status = _status;
+        toView.conId = [_resultArray[_selectedIndexPath.row] objectForKey:@"ID"];
+    }
+    if ([segue.identifier isEqualToString:@"commit"]) {
+        CommitViewController *commitVC = segue.destinationViewController;
+        commitVC.carID = [_resultArray[_selectedIndexPath.row] objectForKey:@"ID"];
+        commitVC.status = _status;
+        commitVC.sender = self;
+    }
+}
+
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    [self.collectionView.header beginRefreshing];
+    return YES;
+}
+
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    _selectedIndexPath = indexPath;
+    if ([_status isEqualToString:WAITING]) {
+        [self performSegueWithIdentifier:@"Waiting" sender:self];
+    } else if ([_status isEqualToString:WORKING]) {
+        [self performSegueWithIdentifier:@"Finish" sender:self];
+    } else {
+        [self performSegueWithIdentifier:@"commit" sender:self];
+    }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    [cell setNeedsDisplay];
+}
+
+#pragma mark - UICollectionViewDelegateFlowLayout
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CGSize frame = collectionView.frame.size;
+    CGFloat wh = (frame.width-1)/2;
+    return CGSizeMake(wh, wh);
+}
+
+#pragma mark - UICollectionViewDataSouce
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return [_resultArray count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CarCollectionViewCell *cell = [_collectionView dequeueReusableCellWithReuseIdentifier:@"CarCell" forIndexPath:indexPath];
+    cell.status = _status;
+    cell.carNum.text = [[_resultArray objectAtIndex:indexPath.row] objectForKey:@"CarNum"];
+    cell.serviceType.text = [[_resultArray objectAtIndex:indexPath.row] objectForKey:@"ServiceType"];
+    NSString *sourceID = [[_resultArray objectAtIndex:indexPath.row] objectForKey:@"OrderStatus"];
+    if (sourceID == nil || ![sourceID containsString:@"增项单"]) {
+        cell.zxdLabel.hidden = YES;
+        
+    } else {
+        cell.zxdLabel.hidden = NO;
+        
+    }
+    NSString *planLeaveFacDate = [[_resultArray objectAtIndex:indexPath.row] objectForKey:@"PlanLeaveFacDate"] == [NSNull null] ? @"" : [[_resultArray objectAtIndex:indexPath.row] objectForKey:@"PlanLeaveFacDate"];
+    NSString *pickupCarDate = [[_resultArray objectAtIndex:indexPath.row] objectForKey:@"PickupCarTime"] == [NSNull null] ? @"" : [[_resultArray objectAtIndex:indexPath.row] objectForKey:@"PickupCarTime"];
+    NSDate *date = nil;
+    NSDate *pickDate = nil;
+    
+    NSArray *dateArray = [planLeaveFacDate componentsSeparatedByString:@" "];
+    dateArray = [dateArray[0] componentsSeparatedByString:@"/"];
+    if (dateArray.count == 3) {
+        date = [NSDate dateWithYear:[dateArray[0] integerValue] month:[dateArray[1] integerValue] day:[dateArray[2] integerValue] hour:0 minute:0 second:0];
+    }
+    dateArray = [pickupCarDate componentsSeparatedByString:@" "];
+    dateArray = [dateArray[0] componentsSeparatedByString:@"/"];
+    if (dateArray.count == 3) {
+        pickDate = [NSDate dateWithYear:[dateArray[0] integerValue] month:[dateArray[1] integerValue] day:[dateArray[2] integerValue] hour:0 minute:0 second:0];
+    }
+    if (date) {
+        NSDate *today = [NSDate date];
+        today = [NSDate dateWithYear:today.year month:today.month day:today.day hour:0 minute:0 second:0];
+        NSInteger later = [date daysLaterThan:today];
+        planLeaveFacDate = [NSString stringWithFormat:@"剩余%ld天", (long)later];
+        if (pickDate) {
+            pickDate = [NSDate dateWithYear:pickDate.year month:pickDate.month day:pickDate.day hour:0 minute:0 second:0];
+            NSInteger total = [date daysLaterThan:pickDate];
+            if (total == 0) {
+                cell.percent = 1.0;
+            } else if (later == 0) {
+                cell.percent = 1.0;
+            } else {
+                cell.percent = 1-(later/(float)total);
+            }
+        } else {
+            cell.percent = 0;
+        }
+    } else {
+        cell.percent = 0;
+    }
+    cell.timeLabel.text = planLeaveFacDate;
+    if ([_status isEqualToString:PREORDER]) {
+        [cell.icon setImage:[UIImage imageNamed:@"carCheck"]];
+    } else if ([_status isEqualToString:WAITING]) {
+        [cell.icon setImage:[UIImage imageNamed:@"btn-dd"]];
+    } else if ([_status isEqualToString:WORKING] || [_status isEqualToString:MYWORKING]) {
+        [cell.icon setImage:[UIImage imageNamed:@"btn-sg"]];
+    } else if ([_status isEqualToString:FINISH] || [_status isEqualToString:MYFINISH]) {
+        [cell.icon setImage:[UIImage imageNamed:@"btn-wg"]];
+    }
+   
+    return cell;
+}
+@end

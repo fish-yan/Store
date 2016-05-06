@@ -1,0 +1,312 @@
+//
+//  CarInfoListViewController.m
+//  StoreReception
+//
+//  Created by 薛焱 on 16/4/11.
+//  Copyright © 2016年 cjm-ios. All rights reserved.
+//
+
+#import "CarInfoListViewController.h"
+#import "CarInfoListCell.h"
+#import "CarDetailViewController.h"
+#import "DatePicker.h"
+#import "JDStatusBarNotification.h"
+#import "MBProgressHUD.h"
+#import "ScanningRecognizeViewController.h"
+#import <AFNetworking.h>
+#import "MJRefresh.h"
+
+#define MARGIN -210
+
+@interface CarInfoListViewController () <
+UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource,
+UITextFieldDelegate> {
+    int pageIndex;
+    int pageSize;
+}
+@property(weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property(weak, nonatomic) IBOutlet UIView *queryView;//查询的View
+@property(weak, nonatomic) IBOutlet UIView *maskView;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *queryViewTopMargin;
+@property(weak, nonatomic) IBOutlet UITextField *beganTimeTF;
+@property(weak, nonatomic) IBOutlet UITextField *endTimeTF;
+@property (weak, nonatomic) IBOutlet UITextField *carNumTF;
+@property (weak, nonatomic) IBOutlet UITextField *userNameTF;
+@property (weak, nonatomic) IBOutlet UIButton *currentStore;
+@property (weak, nonatomic) IBOutlet UIButton *otherStore;
+@property (nonatomic, assign) BOOL isSelect;
+
+@property(nonatomic, strong) UITextField *currentTF;
+@property(nonatomic, strong) NSMutableArray *dataArray;
+@property(nonatomic, strong) DatePicker *datePicker;
+
+@end
+
+@implementation CarInfoListViewController
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    _isSelect = YES;
+    [self configureNavigation];
+    [self loadDatePicker];
+    _dataArray = [NSMutableArray array];
+    pageIndex = 1;
+    pageSize = 20;
+    //配置JDStatusBarNotification样式
+    [JDStatusBarNotification setDefaultStyle:^JDStatusBarStyle *(JDStatusBarStyle *style) {
+        style.barColor = [UIColor colorWithRed:240.0/255.0 green:84.0/255.0 blue:84.0/255.0 alpha:1.0];
+        style.textColor = [UIColor whiteColor];
+        return style;
+    }];
+    [self readData];
+    _tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        pageIndex = 1;
+        [self readData];
+    }];
+    
+    _tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        pageIndex++;
+        [self readData];
+    }];
+    
+}
+
+- (void)configureNavigation {
+    
+    self.navigationController.navigationBar.barTintColor =
+    UIColorFromRGB(0x2878d2);
+    self.navigationController.navigationBar.titleTextAttributes =
+    @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+}
+
+- (void)loadDatePicker {
+    _datePicker =
+    [[NSBundle mainBundle] loadNibNamed:@"DatePicker" owner:self options:nil]
+    .lastObject;
+    _datePicker.frame = CGRectMake(0, 0, kScreenWidth, 250);
+    [_datePicker.cancelBtn addTarget:self
+                              action:@selector(cancelBtnAction:)
+                    forControlEvents:(UIControlEventTouchUpInside)];
+    [_datePicker.commitBtn addTarget:self
+                              action:@selector(commiteBtnAction:)
+                    forControlEvents:(UIControlEventTouchUpInside)];
+    _beganTimeTF.inputView = _datePicker;
+    _endTimeTF.inputView = _datePicker;
+}
+
+- (void)readData {
+    
+    AFHTTPRequestOperationManager *manager =
+    [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];   //请求
+    manager.responseSerializer = [AFJSONResponseSerializer serializer]; //响应
+    NSDictionary *userInfo =
+    [[NSUserDefaults standardUserDefaults] objectForKey:USER_INFO];
+    NSString *userId = userInfo[@"UserId"];
+    NSString *token = userInfo[@"Token"];
+    NSString *companyId = userInfo[@"CompanyId"];
+    NSDictionary *userToken = @{ @"UserId" : userId, @"Token" : token };
+    NSMutableDictionary *parameters = @{
+                                        @"UserToken" : userToken,
+                                        @"MemberName" : _userNameTF.text,
+                                        @"CarNum" : _carNumTF.text,
+                                        @"StoreId" : userInfo[@"StoreId"],
+                                        @"StoreName" : userInfo[@"StoreName"],
+                                        @"CompanyId" : companyId,
+                                        @"StarINSSUEDATE" : _beganTimeTF.text,
+                                        @"EndINSSUEDATE" : _endTimeTF.text,
+                                        @"PageIndex" : [NSString stringWithFormat:@"%d", pageIndex],
+                                        @"PageSize" : [NSString stringWithFormat:@"%d", pageSize]
+                                        }.mutableCopy;
+    //当前门店需要传入StoreId和StoreName
+    if (_isSelect) {
+        [parameters setObject:userInfo[@"StoreId"] forKey:@"StoreId"];
+        [parameters setObject:userInfo[@"StoreName"] forKey:@"StoreName"];
+    }else{
+        [parameters removeObjectForKey:@"StoreId"];
+        [parameters removeObjectForKey:@"StoreName"];
+    }
+    NSString *url = [NSString stringWithFormat:@"%@%@", URL_HEADER, GetCarInfoList];
+    [manager POST:url
+       parameters:parameters
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              NSLog(@"JSON: %@", responseObject);
+              int code = [responseObject[@"Code"] intValue];
+              if (code == 0) {
+                  if (pageIndex == 1) {
+                      _dataArray = responseObject[@"Result"];
+                  }else{
+                      _dataArray = [_dataArray arrayByAddingObjectsFromArray:responseObject[@"Result"]].mutableCopy;
+                  }
+                  
+                  if (_dataArray.count == 0) {
+                      [JDStatusBarNotification showWithStatus:@"没有查询到数据"
+                                                 dismissAfter:2];
+                  }
+                  [_tableView reloadData];
+                  if ([responseObject[@"Result"] count] == 0) {
+                      [_tableView.footer endRefreshingWithNoMoreData];
+                  }else{
+                      [_tableView.footer endRefreshing];
+                  }
+                  [_tableView.header endRefreshing];
+                  
+              } else {
+                  [JDStatusBarNotification showWithStatus:responseObject[@"Message"]
+                                             dismissAfter:2];
+              }
+              [MBProgressHUD hideHUDForView:self.view animated:YES];
+          }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              [JDStatusBarNotification showWithStatus:NETWORK_ERRO dismissAfter:2];
+          }];
+}
+
+- (IBAction)leftItemAction:(UIBarButtonItem *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+//筛选按钮
+- (IBAction)rightItemAction:(UIButton *)sender {
+    [self.view endEditing:YES];
+    if (_queryViewTopMargin.constant == 0) {
+        [self hiddenQueryView];
+    } else {
+        [self showQueryView];
+    }
+}
+//在下一级页面提交返回后刷新数据
+- (IBAction)unwindFromCarInfoDetailController:(UIStoryboardSegue *)segue{
+    [_tableView.header beginRefreshing];
+}
+//添加新的车辆信息
+- (IBAction)addNewCarInfoItemAction:(UIButton *)sender {
+    [self hiddenQueryView];
+    [self performSegueWithIdentifier:@"detail" sender:@"addCarInfo"];
+}
+
+//查询button
+- (IBAction)queryBtnAction:(UIButton *)sender {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    pageIndex = 1;
+    [self readData];
+    [self hiddenQueryView];
+}
+
+- (void)showQueryView{
+    _queryViewTopMargin.constant = 0;
+    [UIView animateWithDuration:0.3 animations:^{
+        _maskView.alpha = 0.5;
+        [self.view layoutIfNeeded];
+    }];
+}
+
+- (void)hiddenQueryView{
+    [self.view endEditing:YES];
+    _queryViewTopMargin.constant = MARGIN;
+    [UIView animateWithDuration:0.3 animations:^{
+        _maskView.alpha = 0;
+        [self.view layoutIfNeeded];
+    }];
+}
+//选择当前门店或者其他门店
+- (IBAction)StoreBtnAction:(UIButton *)sender {
+    [_currentStore setImage:[UIImage imageNamed:@"未选中"] forState:(UIControlStateNormal)];
+    [_otherStore setImage:[UIImage imageNamed:@"未选中"] forState:(UIControlStateNormal)];
+    [sender setImage:[UIImage imageNamed:@"单选"] forState:(UIControlStateNormal)];
+    if ([sender.titleLabel.text isEqualToString:@"当前门店"]) {
+        _isSelect = YES;
+    }else{
+        _isSelect = NO;
+    }
+    
+}
+//二维码扫描,返回车牌号
+- (IBAction)scanBtnAction:(UIButton *)sender {
+    
+    ScanningRecognizeViewController *srvc =
+    [[ScanningRecognizeViewController alloc] init];
+    srvc.passCarLince = ^(NSString *lince) {
+        [_carNumTF resignFirstResponder];
+        NSString *endLince = [lince substringFromIndex:2];
+        _carNumTF.text = endLince;
+    };
+    [self.navigationController pushViewController:srvc animated:YES];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - DatePickerMethod
+- (void)commiteBtnAction:(UIButton *)sender {
+    NSDate *date = _datePicker.datePic.date;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"YYYY/MM/dd";
+    _currentTF.text = [formatter stringFromDate:date];
+    [self.view endEditing:YES];
+}
+
+- (void)cancelBtnAction:(UIButton *)sender {
+    [self.view endEditing:YES];
+}
+
+#pragma mark UITableViewDataSource
+- (NSInteger) tableView:(UITableView *)tableView
+  numberOfRowsInSection:(NSInteger)section {
+    return _dataArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CarInfoListCell *cell =
+    [tableView dequeueReusableCellWithIdentifier:@"CarInfoListCell"
+                                    forIndexPath:indexPath];
+    NSDictionary *dict = _dataArray[indexPath.row];
+    cell.CarNumLab.text = [NSString stringWithFormat:@"%@  %@", dict[@"CICARNUMBER"], dict[@"LeaguName"]];
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.view endEditing:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self performSegueWithIdentifier:@"detail" sender:indexPath];
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    _currentTF = textField;
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if (touches.anyObject.view != _queryView) {
+        [self hiddenQueryView];
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    CarDetailViewController *carInfoDetailVC = segue.destinationViewController;
+    if ([sender isKindOfClass:[NSIndexPath class]]) {
+        NSIndexPath *indexPath = (NSIndexPath *)sender;
+        carInfoDetailVC.carInfo = [_dataArray[indexPath.row] mutableCopy];
+    }else{
+        carInfoDetailVC.isFromAddNewCarBtn = YES;
+        carInfoDetailVC.carInfo = [NSMutableDictionary dictionary];
+    }
+    
+}
+
+@end

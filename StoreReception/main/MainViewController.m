@@ -1,0 +1,169 @@
+//
+//  MainViewController.m
+//  StoreReception
+//
+//  Created by cjm-ios on 15/5/28.
+//  Copyright (c) 2015年 cjm-ios. All rights reserved.
+//
+
+#import "MainViewController.h"
+#import "ItemListViewController.h"
+#import "SearchViewController.h"
+#import "SearchOrderViewController.h"
+#import "ServicesViewController.h"
+#import "SearchUserViewController.h"
+#import "SearchCardViewController.h"
+#import "TCardViewController.h"
+#import "PickUpCarViewController.h"
+#import "ItemBillingViewController.h"
+#import "ServerBillingViewController.h"
+#import "CarWashBillingViewController.h"
+#import "HttpClient.h"
+#import "Utils.h"
+#import "ScanningRecognizeViewController.h"
+#import "NIncreaseViewController.h"
+#import "ZAActivityBar.h"
+#import "CarInfoListViewController.h"
+
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+
+@interface MainViewController ()
+
+@end
+
+@implementation MainViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    _versionL.text = [NSString stringWithFormat:@"V%@",[[[NSBundle mainBundle]infoDictionary]valueForKey:@"CFBundleShortVersionString"]];
+    _alertL.layer.cornerRadius = 8;
+    _alertL.layer.masksToBounds = YES;
+    _alertL.layer.borderWidth = 0.5;
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenAlertL)];
+    [_alertL addGestureRecognizer:gesture];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"frame:   %f--%f",CGRectGetHeight([UIScreen mainScreen].bounds),CGRectGetWidth(self.view.frame) );
+    if (CGRectGetHeight([UIScreen mainScreen].bounds) == 480.f) {
+        _viewToViewConstraint.constant = 30;
+        _bottomConstraint.constant = 0;
+    }
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)hiddenAlertL {
+    _alertL.hidden = YES;
+}
+
+- (IBAction)menuClick:(id)sender {
+    WS(ws);
+    NSInteger tag = ((UIButton *)sender).tag;
+    switch (tag) {
+        case 1: {
+            ScanningRecognizeViewController *suvc = [[ScanningRecognizeViewController alloc] init];
+            suvc.type = @"autowash";
+            suvc.autoWashResponse = ^(NSString *response) {
+                _alertL.text = response;
+                _alertL.hidden = NO;
+                [ws performSelector:@selector(hiddenAlertL) withObject:nil afterDelay:6];
+            };
+            [self.navigationController pushViewController:suvc animated:YES];
+        }
+            break;
+        case 2: {
+            SearchUserViewController *suvc = [[SearchUserViewController alloc] initWithNibName:@"SearchUserViewController" bundle:nil];
+            suvc.type = @"wash";
+            [self.navigationController pushViewController:suvc animated:YES];
+        }
+            break;
+        case 3: {
+            SearchUserViewController *suvc = [[SearchUserViewController alloc] initWithNibName:@"SearchUserViewController" bundle:nil];
+            [self.navigationController pushViewController:suvc animated:YES];
+        }
+            break;
+        case 4: {
+            ItemBillingViewController *ibvc = [[ItemBillingViewController alloc] init];
+            [self.navigationController pushViewController:ibvc animated:YES];
+        }
+            break;
+        case 5: {
+            PickUpCarViewController *pucv = [[PickUpCarViewController alloc] init];
+            [self.navigationController pushViewController:pucv animated:YES];
+        }
+            break;
+        case 6: {
+            ServerBillingViewController *sbvc = [[ServerBillingViewController alloc] init];
+            [self.navigationController pushViewController:sbvc animated:YES];
+        }
+            break;
+        case 7: {
+            NIncreaseViewController *invc = [[NIncreaseViewController alloc] init];
+            [self.navigationController pushViewController:invc animated:YES];
+        }
+            break;
+        case 8: {
+            SearchViewController *svc = [[SearchViewController alloc]initWithNibName:@"SearchViewController" bundle:nil];
+            [self.navigationController pushViewController:svc animated:YES];
+        }
+            break;
+        case 9: {
+            SearchOrderViewController *ssvc = [[SearchOrderViewController alloc] initWithNibName:@"SearchOrderViewController" bundle:nil];
+            [self.navigationController pushViewController:ssvc animated:YES];
+            
+        }
+            break;
+        case 10: {
+            UIStoryboard *carInfoListSB = [UIStoryboard storyboardWithName:@"CarInfo" bundle:nil];
+            CarInfoListViewController *carInfoListVC = [carInfoListSB instantiateViewControllerWithIdentifier:@"CarInfoListViewController"];
+            [self.navigationController pushViewController:carInfoListVC animated:YES];
+            
+        }
+            break;
+        case 11: {
+            
+            SearchUserViewController *suvc = [[SearchUserViewController alloc] initWithNibName:@"SearchUserViewController" bundle:nil];
+            suvc.type = @"InputMsgViewController";
+            [self.navigationController pushViewController:suvc animated:YES];
+        }
+            break;
+        case 12: {
+            [[HttpClient sharedHttpClient] setBaseURL:URL_HEADER];
+            UIStoryboard *repairStoryBoard = [UIStoryboard storyboardWithName:@"Repair" bundle:nil];
+            UIViewController *vc = [repairStoryBoard instantiateViewControllerWithIdentifier:@"homeVC"];
+            [self.navigationController pushViewController:vc animated:YES];
+            
+        }
+            break;
+        case 13:{
+            [[HttpClient sharedHttpClient] setBaseURL:URL_HEADER];
+            UIStoryboard *carCheckStoryboard = [UIStoryboard storyboardWithName:@"CarCheck" bundle:nil];
+            UIViewController *carCheckVC = [carCheckStoryboard instantiateViewControllerWithIdentifier:@"CarCheck"];
+            [self.navigationController pushViewController:carCheckVC animated:YES];
+            
+        }
+            break;
+        case 14:{
+            UIStoryboard *messageStoryboard = [UIStoryboard storyboardWithName:@"Message" bundle:nil];
+            UIViewController *messageVC = [messageStoryboard instantiateViewControllerWithIdentifier:@"MessageViewController"];
+            [self.navigationController pushViewController:messageVC animated:YES];
+            
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+- (IBAction)logOutClick {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:USER_INFO];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+@end

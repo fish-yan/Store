@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CCardViewController">
+            <connections>
+                <outlet property="cardMsgBtn" destination="0x0-A4-Wm8" id="fEF-7w-Tiq"/>
+                <outlet property="cardMsgTableView" destination="SGW-64-2Sd" id="5cX-rK-qnD"/>
+                <outlet property="cardMsgView" destination="o0v-Qf-Vz4" id="9Lu-SH-LXZ"/>
+                <outlet property="cardRecordBtn" destination="2Nt-eW-gI7" id="wJ8-7c-h7g"/>
+                <outlet property="lineView" destination="Upd-Ld-KcI" id="0w6-WL-0hh"/>
+                <outlet property="view" destination="SNG-wV-Lfa" id="a6L-7e-5CN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="SNG-wV-Lfa">
+            <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o0v-Qf-Vz4" userLabel="cardMsgView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wfg-q3-JCU" userLabel="menuView">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0x0-A4-Wm8">
+                                    <rect key="frame" x="44" y="0.0" width="71" height="38"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="38" id="4bD-NI-2hc"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <state key="normal" title="卡信息">
+                                        <color key="titleColor" red="0.15686274510000001" green="0.47058823529999999" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="cardMsgClick:" destination="-1" eventType="touchUpInside" id="Uwc-Aq-LGn"/>
+                                    </connections>
+                                </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Upd-Ld-KcI" userLabel="lineV">
+                                    <rect key="frame" x="44" y="38" width="71" height="2"/>
+                                    <color key="backgroundColor" red="0.15686274510000001" green="0.47058823529999999" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="2" id="70s-Z3-Af4"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I11-td-dhe">
+                                    <rect key="frame" x="160" y="10" width="1" height="20"/>
+                                    <color key="backgroundColor" red="0.72941176470000002" green="0.72941176470000002" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="1" id="20J-wA-iuJ"/>
+                                        <constraint firstAttribute="height" constant="20" id="KbM-rc-hkF"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mne-to-wNZ" userLabel="clineView">
+                                    <rect key="frame" x="0.0" y="39" width="320" height="1"/>
+                                    <color key="backgroundColor" red="0.72941176470000002" green="0.72941176470000002" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="Pp8-cg-hHm"/>
+                                    </constraints>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nt-eW-gI7">
+                                    <rect key="frame" x="205" y="0.0" width="71" height="38"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="38" id="7v8-9q-AFD"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <state key="normal" title="使用记录">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="cardRecordClick:" destination="-1" eventType="touchUpInside" id="dxl-Pa-snC"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="Upd-Ld-KcI" firstAttribute="top" secondItem="0x0-A4-Wm8" secondAttribute="bottom" id="18e-Dh-inw"/>
+                                <constraint firstItem="I11-td-dhe" firstAttribute="leading" secondItem="0x0-A4-Wm8" secondAttribute="trailing" constant="45" id="41B-Yz-Yjl"/>
+                                <constraint firstItem="2Nt-eW-gI7" firstAttribute="leading" secondItem="I11-td-dhe" secondAttribute="trailing" constant="44" id="B1h-wA-522"/>
+                                <constraint firstItem="Upd-Ld-KcI" firstAttribute="width" secondItem="0x0-A4-Wm8" secondAttribute="width" id="BBQ-RS-jfc"/>
+                                <constraint firstItem="0x0-A4-Wm8" firstAttribute="top" secondItem="Wfg-q3-JCU" secondAttribute="top" id="CyX-kd-Scu"/>
+                                <constraint firstItem="0x0-A4-Wm8" firstAttribute="leading" secondItem="Wfg-q3-JCU" secondAttribute="leading" constant="44" id="Dp9-G4-dKP"/>
+                                <constraint firstItem="2Nt-eW-gI7" firstAttribute="leading" secondItem="I11-td-dhe" secondAttribute="trailing" constant="44" id="HpE-1o-eN2"/>
+                                <constraint firstAttribute="trailing" secondItem="2Nt-eW-gI7" secondAttribute="trailing" constant="44" id="NeP-N5-aQI"/>
+                                <constraint firstAttribute="trailing" secondItem="Mne-to-wNZ" secondAttribute="trailing" id="PqB-mL-xlV"/>
+                                <constraint firstAttribute="bottom" secondItem="I11-td-dhe" secondAttribute="bottom" constant="10" id="QsF-NK-h0d"/>
+                                <constraint firstAttribute="bottom" secondItem="Mne-to-wNZ" secondAttribute="bottom" id="REU-xl-emV"/>
+                                <constraint firstItem="2Nt-eW-gI7" firstAttribute="top" secondItem="Wfg-q3-JCU" secondAttribute="top" id="Riw-bp-vOv"/>
+                                <constraint firstItem="2Nt-eW-gI7" firstAttribute="height" secondItem="0x0-A4-Wm8" secondAttribute="height" id="SIc-yG-6uG"/>
+                                <constraint firstAttribute="height" constant="40" id="hUB-Kl-FMY"/>
+                                <constraint firstItem="Upd-Ld-KcI" firstAttribute="leading" secondItem="Wfg-q3-JCU" secondAttribute="leading" constant="44" id="iPz-jo-CXE"/>
+                                <constraint firstItem="2Nt-eW-gI7" firstAttribute="width" secondItem="0x0-A4-Wm8" secondAttribute="width" id="kPi-HU-JpB"/>
+                                <constraint firstItem="Mne-to-wNZ" firstAttribute="leading" secondItem="Wfg-q3-JCU" secondAttribute="leading" id="rYn-Sh-fWE"/>
+                                <constraint firstItem="I11-td-dhe" firstAttribute="top" secondItem="Wfg-q3-JCU" secondAttribute="top" constant="10" id="yPJ-Bm-qdn"/>
+                                <constraint firstItem="I11-td-dhe" firstAttribute="leading" secondItem="0x0-A4-Wm8" secondAttribute="trailing" constant="45" id="zlN-GG-OVO"/>
+                            </constraints>
+                        </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SGW-64-2Sd" userLabel="cardMsgTable View">
+                            <rect key="frame" x="0.0" y="40" width="320" height="464"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="XvR-bH-WyW"/>
+                                <outlet property="delegate" destination="-1" id="6XG-Mk-xYg"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Wfg-q3-JCU" firstAttribute="trailing" secondItem="SGW-64-2Sd" secondAttribute="trailing" id="4tr-d3-SL4"/>
+                        <constraint firstItem="Wfg-q3-JCU" firstAttribute="leading" secondItem="SGW-64-2Sd" secondAttribute="leading" id="6Sh-RG-bw7"/>
+                        <constraint firstItem="SGW-64-2Sd" firstAttribute="leading" secondItem="o0v-Qf-Vz4" secondAttribute="leading" id="JoH-PF-bAx"/>
+                        <constraint firstAttribute="bottom" secondItem="SGW-64-2Sd" secondAttribute="bottom" id="No5-Ga-Acs"/>
+                        <constraint firstItem="Wfg-q3-JCU" firstAttribute="top" secondItem="o0v-Qf-Vz4" secondAttribute="top" id="gjl-1k-nvs"/>
+                        <constraint firstItem="SGW-64-2Sd" firstAttribute="top" secondItem="Wfg-q3-JCU" secondAttribute="bottom" id="kco-FR-4pD"/>
+                        <constraint firstAttribute="trailing" secondItem="SGW-64-2Sd" secondAttribute="trailing" id="tFE-4B-B6h"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="o0v-Qf-Vz4" firstAttribute="leading" secondItem="SNG-wV-Lfa" secondAttribute="leading" id="Gmx-IR-G2g"/>
+                <constraint firstAttribute="trailing" secondItem="o0v-Qf-Vz4" secondAttribute="trailing" id="Lc0-Ft-2xk"/>
+                <constraint firstItem="o0v-Qf-Vz4" firstAttribute="top" secondItem="SNG-wV-Lfa" secondAttribute="top" id="WqR-iv-CBL"/>
+                <constraint firstAttribute="bottom" secondItem="o0v-Qf-Vz4" secondAttribute="bottom" id="pCe-eX-FX5"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <point key="canvasLocation" x="506" y="370"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="XZZ-PH-u0m" customClass="SearchHistoryPriceView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="94"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="选择开始时间" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ivA-e4-wz9">
+                    <rect key="frame" x="11" y="13" width="144" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="选择结束时间" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qrV-0F-MUC">
+                    <rect key="frame" x="166" y="13" width="143" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bY-Xa-NPr">
+                    <rect key="frame" x="11" y="53" width="298" height="30"/>
+                    <color key="backgroundColor" red="0.1843137255" green="0.47843137250000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="N6I-k3-JTc"/>
+                    </constraints>
+                    <state key="normal" title="查询">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="searchClick:" destination="XZZ-PH-u0m" eventType="touchUpInside" id="ppX-5o-w2t"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="9bY-Xa-NPr" firstAttribute="leading" secondItem="XZZ-PH-u0m" secondAttribute="leading" constant="11" id="4DC-1u-wMT"/>
+                <constraint firstItem="ivA-e4-wz9" firstAttribute="leading" secondItem="XZZ-PH-u0m" secondAttribute="leading" constant="11" id="9F4-V2-sdH"/>
+                <constraint firstItem="ivA-e4-wz9" firstAttribute="height" secondItem="qrV-0F-MUC" secondAttribute="height" id="Dht-ST-4cU"/>
+                <constraint firstAttribute="trailing" secondItem="9bY-Xa-NPr" secondAttribute="trailing" constant="11" id="IBy-2D-246"/>
+                <constraint firstItem="qrV-0F-MUC" firstAttribute="leading" secondItem="ivA-e4-wz9" secondAttribute="trailing" constant="11" id="OVU-9D-5Bb"/>
+                <constraint firstAttribute="bottom" secondItem="9bY-Xa-NPr" secondAttribute="bottom" constant="11" id="Rfx-Ry-LQs"/>
+                <constraint firstAttribute="trailing" secondItem="qrV-0F-MUC" secondAttribute="trailing" constant="11" id="TVS-PE-1Hk"/>
+                <constraint firstItem="ivA-e4-wz9" firstAttribute="width" secondItem="qrV-0F-MUC" secondAttribute="width" id="ZfG-f6-Y9Y"/>
+                <constraint firstItem="qrV-0F-MUC" firstAttribute="centerY" secondItem="ivA-e4-wz9" secondAttribute="centerY" id="ZgW-H1-C0E"/>
+                <constraint firstItem="ivA-e4-wz9" firstAttribute="top" secondItem="XZZ-PH-u0m" secondAttribute="top" constant="13" id="hgf-YU-Tat"/>
+                <constraint firstItem="9bY-Xa-NPr" firstAttribute="top" secondItem="qrV-0F-MUC" secondAttribute="bottom" constant="10" id="ljh-QT-qH5"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="beginTextField" destination="ivA-e4-wz9" id="bIL-4H-GvS"/>
+                <outlet property="endTextField" destination="qrV-0F-MUC" id="EBS-Cc-xMv"/>
+            </connections>
+            <point key="canvasLocation" x="-103" y="265.5"/>
+        </view>
+    </objects>
+</document>

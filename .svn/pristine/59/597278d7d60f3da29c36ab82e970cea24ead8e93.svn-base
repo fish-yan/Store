@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>仪表灯光、故障灯</key>
+	<string>Instrument</string>
+	<key>内部灯光</key>
+	<string>CabinLights</string>
+	<key>信号系统（灯光、指示灯、警告灯、喇叭）</key>
+	<string>SignalSystem</string>
+	<key>音频、视频装置检查</key>
+	<string>SoundVideo</string>
+	<key>转向</key>
+	<string>Steering</string>
+	<key>手刹</key>
+	<string>HandBrake</string>
+	<key>空调一鼓风机</key>
+	<string>Aircondition</string>
+	<key>换雨刷片支架</key>
+	<string>Wiper</string>
+	<key>风挡及窗户玻璃</key>
+	<string>glass</string>
+	<key>更换空调滤芯</key>
+	<string>CabinAirFilter</string>
+	<key>冷却系统（防冻液）</key>
+	<string>coolingSystem</string>
+	<key>发动机油、转向助力油、制动液</key>
+	<string>engineoil</string>
+	<key>V型皮带</key>
+	<string>Vbelt</string>
+	<key>可察觉的漏油漏水</key>
+	<string>oilleak</string>
+	<key>动物损坏</key>
+	<string>Animaldamage</string>
+	<key>减震</key>
+	<string>damping </string>
+	<key>胎面</key>
+	<string>tread </string>
+	<key>发动机漏及波箱漏</key>
+	<string>Engineleakage</string>
+	<key>前桥漏油</key>
+	<string>FrontAxleOil</string>
+	<key>前刹车盘片</key>
+	<string>Frontbrake</string>
+	<key>后桥漏油</key>
+	<string>RearAxleOil</string>
+	<key>后刹车盘片</key>
+	<string>rearbrake</string>
+	<key>刹车油管</key>
+	<string>Brakeline</string>
+	<key>排气系统</key>
+	<string>ExhaustAirSystem</string>
+	<key>燃油系统</key>
+	<string>FuelSystem</string>
+	<key>石头印</key>
+	<string>CarCondition</string>
+	<key>划伤</key>
+	<string>CarCondition</string>
+	<key>凹陷</key>
+	<string>CarCondition</string>
+	<key>碰撞损伤</key>
+	<string>CarCondition</string>
+	<key>洁净</key>
+	<string>CarBodyPolo</string>
+	<key>脏</key>
+	<string>CarBodyPolo</string>
+	<key>很脏</key>
+	<string>CarBodyPolo</string>
+	<key>不做</key>
+	<string>ExtraWork</string>
+	<key>做</key>
+	<string>ExtraWork</string>
+	<key>New item</key>
+	<string>Sparetyre </string>
+</dict>
+</plist>

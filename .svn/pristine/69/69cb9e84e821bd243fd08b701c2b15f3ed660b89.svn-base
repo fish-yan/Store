@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CardMsgTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="充值卡" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60Z-ZD-m8G">
+                        <rect key="frame" x="121" y="0.0" width="181" height="49"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="49" id="ewb-hQ-DHd"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.25490196078431371" green="0.25490196078431371" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2c-sk-uq3">
+                        <rect key="frame" x="11" y="48" width="298" height="1"/>
+                        <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="i7B-hs-ftx"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="卡类型" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agJ-V8-fr0">
+                        <rect key="frame" x="11" y="0.0" width="99" height="49"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="99" id="2lz-6R-aYN"/>
+                            <constraint firstAttribute="width" constant="53" id="Hjg-hL-fLd"/>
+                            <constraint firstAttribute="height" constant="49" id="gIc-J9-Bi5"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.53725490196078429" green="0.53725490196078429" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Hjg-hL-fLd"/>
+                            </mask>
+                        </variation>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="60Z-ZD-m8G" firstAttribute="leading" secondItem="agJ-V8-fr0" secondAttribute="trailing" constant="11" id="4NT-bt-if8"/>
+                    <constraint firstAttribute="bottom" secondItem="60Z-ZD-m8G" secondAttribute="bottom" id="5BB-xy-z3T"/>
+                    <constraint firstItem="agJ-V8-fr0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="11" id="CSd-GF-uqa"/>
+                    <constraint firstAttribute="bottom" secondItem="60Z-ZD-m8G" secondAttribute="bottom" id="D2s-li-UKQ"/>
+                    <constraint firstAttribute="trailing" secondItem="D2c-sk-uq3" secondAttribute="trailing" constant="11" id="DNZ-h8-2L5"/>
+                    <constraint firstItem="agJ-V8-fr0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="FlI-o0-rZK"/>
+                    <constraint firstItem="60Z-ZD-m8G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="g7D-Ta-Atu"/>
+                    <constraint firstItem="D2c-sk-uq3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="11" id="k6W-eo-hGj"/>
+                    <constraint firstAttribute="bottom" secondItem="D2c-sk-uq3" secondAttribute="bottom" id="kII-eM-Atq"/>
+                    <constraint firstItem="60Z-ZD-m8G" firstAttribute="leading" secondItem="agJ-V8-fr0" secondAttribute="trailing" constant="11" id="o4m-Yh-iwg"/>
+                    <constraint firstAttribute="bottom" secondItem="agJ-V8-fr0" secondAttribute="bottom" id="oia-ix-jfS"/>
+                    <constraint firstAttribute="trailing" secondItem="60Z-ZD-m8G" secondAttribute="trailing" constant="18" id="sZ8-X6-Nsh"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="D2s-li-UKQ"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contentL" destination="60Z-ZD-m8G" id="KvG-55-J4i"/>
+                <outlet property="titleL" destination="agJ-V8-fr0" id="OMB-y6-ARc"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

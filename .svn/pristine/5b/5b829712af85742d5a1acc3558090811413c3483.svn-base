@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="TCardTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tnr-td-1GI">
+                        <rect key="frame" x="11" y="10" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="eGn-KJ-chC"/>
+                            <constraint firstAttribute="width" constant="24" id="ygH-wK-QMz"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="未选.png">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="洗车（剩余8次）" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lK-bA-IPs">
+                        <rect key="frame" x="64" y="11" width="245" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="t0A-Z4-oiM"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.53725490196078429" green="0.53725490196078429" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="7lK-bA-IPs" firstAttribute="leading" secondItem="Tnr-td-1GI" secondAttribute="trailing" constant="29" id="7o3-jf-beq"/>
+                    <constraint firstItem="7lK-bA-IPs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="CUh-yb-wds"/>
+                    <constraint firstItem="7lK-bA-IPs" firstAttribute="leading" secondItem="Tnr-td-1GI" secondAttribute="trailing" constant="29" id="XRc-8k-dIb"/>
+                    <constraint firstItem="Tnr-td-1GI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="11" id="asf-kT-Kgm"/>
+                    <constraint firstItem="Tnr-td-1GI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="mpb-ci-qp0"/>
+                    <constraint firstAttribute="trailing" secondItem="7lK-bA-IPs" secondAttribute="trailing" constant="11" id="tHb-7B-UhC"/>
+                </constraints>
+            </tableViewCellContentView>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="未选.png" width="24" height="24"/>
+    </resources>
+</document>

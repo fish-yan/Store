@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="StockViewDetal">
+            <rect key="frame" x="0.0" y="0.0" width="262" height="311"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="各店库存明细" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOB-We-aG5" userLabel="titleL">
+                    <rect key="frame" x="0.0" y="0.0" width="262" height="52"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="52" id="fIZ-GD-wt6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6Ds-cI-P0r">
+                    <rect key="frame" x="0.0" y="52" width="262" height="219"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="3JO-a5-m6M"/>
+                        <outlet property="delegate" destination="-1" id="fVd-fS-9lx"/>
+                    </connections>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3Q-iX-bQp" userLabel="commitBtn">
+                    <rect key="frame" x="0.0" y="271" width="262" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="JeU-1m-3La"/>
+                    </constraints>
+                    <state key="normal" title="好的">
+                        <color key="titleColor" red="0.18039215689999999" green="0.63137254899999995" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="commitClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="8Cc-Sh-pI0"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Z3Q-iX-bQp" firstAttribute="top" secondItem="6Ds-cI-P0r" secondAttribute="bottom" id="0DZ-xf-LYl"/>
+                <constraint firstItem="pOB-We-aG5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4cN-Gj-vY9"/>
+                <constraint firstItem="Z3Q-iX-bQp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6P1-tl-JYB"/>
+                <constraint firstAttribute="trailing" secondItem="pOB-We-aG5" secondAttribute="trailing" id="7RC-Z9-KCu"/>
+                <constraint firstItem="pOB-We-aG5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="KEg-jC-Zy5"/>
+                <constraint firstAttribute="trailing" secondItem="6Ds-cI-P0r" secondAttribute="trailing" id="Kp3-Wi-gwx"/>
+                <constraint firstItem="6Ds-cI-P0r" firstAttribute="top" secondItem="pOB-We-aG5" secondAttribute="bottom" id="iqv-nK-RoN"/>
+                <constraint firstAttribute="trailing" secondItem="Z3Q-iX-bQp" secondAttribute="trailing" id="kCw-Fe-83u"/>
+                <constraint firstItem="6Ds-cI-P0r" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="r0L-du-P2z"/>
+                <constraint firstAttribute="bottom" secondItem="Z3Q-iX-bQp" secondAttribute="bottom" id="ti8-2S-Mxz"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="tableView" destination="6Ds-cI-P0r" id="Iax-HD-34u"/>
+                <outlet property="titleL" destination="pOB-We-aG5" id="eGC-6J-Sud"/>
+            </connections>
+        </view>
+    </objects>
+</document>

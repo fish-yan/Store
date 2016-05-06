@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="364" id="KGk-i7-Jjw" customClass="InternalinsTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="364"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="363"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yt7-h2-usV">
+                        <rect key="frame" x="22" y="32" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="24" id="01E-Hz-a2c"/>
+                            <constraint firstAttribute="height" constant="24" id="tZa-oM-4py"/>
+                        </constraints>
+                        <state key="normal" title="仪表灯光、故障灯" backgroundImage="未选中.png">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected" backgroundImage="选中.png"/>
+                        <state key="highlighted" backgroundImage="选中.png"/>
+                        <connections>
+                            <action selector="ybClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1MC-uK-eaB"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h89-xr-KdS">
+                        <rect key="frame" x="22" y="79" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="JEy-aU-Miv"/>
+                            <constraint firstAttribute="width" constant="24" id="euW-wP-3Vd"/>
+                        </constraints>
+                        <state key="normal" title="内部灯光" backgroundImage="未选中.png">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="highlighted" backgroundImage="选中.png"/>
+                        <connections>
+                            <action selector="lbClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="6vg-ni-6AO"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjJ-Vl-eJi">
+                        <rect key="frame" x="22" y="127" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="24" id="V8a-Js-NM2"/>
+                            <constraint firstAttribute="height" constant="24" id="Z8f-j8-hrO"/>
+                        </constraints>
+                        <state key="normal" title="信号系统（灯光、指示灯、警告灯、喇叭）" backgroundImage="未选中.png">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="highlighted" backgroundImage="选中.png"/>
+                        <connections>
+                            <action selector="xhClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="B06-id-9bz"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Vr-DR-EZX">
+                        <rect key="frame" x="22" y="174" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="W6q-IK-IPd"/>
+                            <constraint firstAttribute="width" constant="24" id="rLa-5R-PJp"/>
+                        </constraints>
+                        <state key="normal" title="音频、视频装置检查" backgroundImage="未选中.png">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="highlighted" backgroundImage="选中.png"/>
+                        <connections>
+                            <action selector="ypClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ITQ-cR-hWT"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Zf-uF-thW">
+                        <rect key="frame" x="22" y="222" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="24" id="7lp-Fj-rc4"/>
+                            <constraint firstAttribute="height" constant="24" id="Kja-6a-jO8"/>
+                        </constraints>
+                        <state key="normal" title="转向" backgroundImage="未选中.png">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="highlighted" backgroundImage="选中.png"/>
+                        <connections>
+                            <action selector="zxClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Wpm-9Q-b57"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEe-18-QSS">
+                        <rect key="frame" x="22" y="269" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="eII-Li-CZj"/>
+                            <constraint firstAttribute="width" constant="24" id="yI7-nb-TV1"/>
+                        </constraints>
+                        <state key="normal" title="手刹" backgroundImage="未选中.png">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="highlighted" backgroundImage="选中.png"/>
+                        <connections>
+                            <action selector="ssClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0xz-kD-Fgk"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJo-wu-PpC">
+                        <rect key="frame" x="22" y="317" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="e4n-oA-YLu"/>
+                            <constraint firstAttribute="width" constant="24" id="h7P-nQ-gp7"/>
+                        </constraints>
+                        <state key="normal" title="空调一鼓风机" backgroundImage="未选中.png">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="highlighted" backgroundImage="选中.png"/>
+                        <connections>
+                            <action selector="ktClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xxf-Pa-lfG"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="空调一鼓风机" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDC-SR-DBl">
+                        <rect key="frame" x="74" y="320" width="84" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内部灯光" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SmU-gB-c8F">
+                        <rect key="frame" x="74" y="83" width="56" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.49019607843137253" green="0.49019607843137253" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="信号系统（灯光、指示灯、警告灯、喇叭）" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYT-Be-0MU">
+                        <rect key="frame" x="74" y="131" width="246" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音频、视频装置检查" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhl-ke-mkS">
+                        <rect key="frame" x="74" y="178" width="126" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="转向" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIl-oB-tap">
+                        <rect key="frame" x="74" y="226" width="28" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手刹" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2Q-mh-hp8">
+                        <rect key="frame" x="74" y="273" width="28" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="仪表灯光、故障灯" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wX-hA-spT">
+                        <rect key="frame" x="74" y="36" width="112" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.49019607843137253" green="0.49019607843137253" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="hjJ-Vl-eJi" firstAttribute="top" secondItem="h89-xr-KdS" secondAttribute="bottom" constant="23.5" id="43f-gt-hOp"/>
+                    <constraint firstItem="K2Q-mh-hp8" firstAttribute="leading" secondItem="XEe-18-QSS" secondAttribute="trailing" constant="27.5" id="5JO-hO-IaF"/>
+                    <constraint firstItem="6Vr-DR-EZX" firstAttribute="top" secondItem="hjJ-Vl-eJi" secondAttribute="bottom" constant="23.5" id="69F-Hg-Wtd"/>
+                    <constraint firstItem="WYT-Be-0MU" firstAttribute="centerY" secondItem="hjJ-Vl-eJi" secondAttribute="centerY" id="7dQ-im-24o"/>
+                    <constraint firstItem="PDC-SR-DBl" firstAttribute="centerY" secondItem="oJo-wu-PpC" secondAttribute="centerY" id="8Ef-pw-wHc"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PDC-SR-DBl" secondAttribute="trailing" id="FGf-1A-die"/>
+                    <constraint firstItem="K2Q-mh-hp8" firstAttribute="centerY" secondItem="XEe-18-QSS" secondAttribute="centerY" id="Gey-05-gxa"/>
+                    <constraint firstItem="XEe-18-QSS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="22" id="IDH-VH-jVk"/>
+                    <constraint firstItem="yt7-h2-usV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="31.5" id="Kdw-gF-eeU"/>
+                    <constraint firstItem="6Zf-uF-thW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="22" id="MAa-FQ-eb4"/>
+                    <constraint firstItem="oJo-wu-PpC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="22" id="MnJ-iE-QVE"/>
+                    <constraint firstItem="PDC-SR-DBl" firstAttribute="leading" secondItem="oJo-wu-PpC" secondAttribute="trailing" constant="27.5" id="O7v-HA-hF6"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OIl-oB-tap" secondAttribute="trailing" id="QTn-Gk-NFD"/>
+                    <constraint firstItem="oJo-wu-PpC" firstAttribute="top" secondItem="XEe-18-QSS" secondAttribute="bottom" constant="23.5" id="S5g-3Y-BXa"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8wX-hA-spT" secondAttribute="trailing" id="THK-H5-8i7"/>
+                    <constraint firstItem="XEe-18-QSS" firstAttribute="top" secondItem="6Zf-uF-thW" secondAttribute="bottom" constant="23.5" id="UKI-Fa-vkG"/>
+                    <constraint firstItem="6Zf-uF-thW" firstAttribute="top" secondItem="6Vr-DR-EZX" secondAttribute="bottom" constant="23.5" id="WjZ-v8-M4x"/>
+                    <constraint firstItem="SmU-gB-c8F" firstAttribute="leading" secondItem="h89-xr-KdS" secondAttribute="trailing" constant="27.5" id="Wkd-z8-eYH"/>
+                    <constraint firstAttribute="bottom" secondItem="oJo-wu-PpC" secondAttribute="bottom" constant="22" id="ZMG-vj-tTY"/>
+                    <constraint firstItem="h89-xr-KdS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="22" id="anv-6J-x24"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="K2Q-mh-hp8" secondAttribute="trailing" id="cC6-aZ-yOq"/>
+                    <constraint firstItem="hjJ-Vl-eJi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="22" id="edc-rx-Kc4"/>
+                    <constraint firstItem="WYT-Be-0MU" firstAttribute="leading" secondItem="hjJ-Vl-eJi" secondAttribute="trailing" constant="27.5" id="fbT-za-9xe"/>
+                    <constraint firstItem="Yhl-ke-mkS" firstAttribute="centerY" secondItem="6Vr-DR-EZX" secondAttribute="centerY" id="gQJ-ly-48C"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WYT-Be-0MU" secondAttribute="trailing" id="hAb-rm-PcO"/>
+                    <constraint firstItem="SmU-gB-c8F" firstAttribute="centerY" secondItem="h89-xr-KdS" secondAttribute="centerY" id="hce-Wo-vhR"/>
+                    <constraint firstItem="yt7-h2-usV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="22" id="jnw-uc-8Zn"/>
+                    <constraint firstItem="OIl-oB-tap" firstAttribute="centerY" secondItem="6Zf-uF-thW" secondAttribute="centerY" id="nIh-9c-zhV"/>
+                    <constraint firstItem="8wX-hA-spT" firstAttribute="centerY" secondItem="yt7-h2-usV" secondAttribute="centerY" id="rUh-gQ-v55"/>
+                    <constraint firstItem="6Vr-DR-EZX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="22" id="rYk-Qq-hCy"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Yhl-ke-mkS" secondAttribute="trailing" id="t1T-vc-A6P"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SmU-gB-c8F" secondAttribute="trailing" id="tBh-lO-sb5"/>
+                    <constraint firstAttribute="bottom" secondItem="PDC-SR-DBl" secondAttribute="bottom" constant="26" id="wFs-7X-wWp"/>
+                    <constraint firstItem="Yhl-ke-mkS" firstAttribute="leading" secondItem="6Vr-DR-EZX" secondAttribute="trailing" constant="27.5" id="xuZ-23-FwD"/>
+                    <constraint firstItem="OIl-oB-tap" firstAttribute="leading" secondItem="6Zf-uF-thW" secondAttribute="trailing" constant="27.5" id="y6z-f3-Jlk"/>
+                    <constraint firstItem="8wX-hA-spT" firstAttribute="leading" secondItem="yt7-h2-usV" secondAttribute="trailing" constant="27.5" id="yGD-eB-caG"/>
+                    <constraint firstItem="h89-xr-KdS" firstAttribute="top" secondItem="yt7-h2-usV" secondAttribute="bottom" constant="23.5" id="zsW-5j-1GV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="ktBtn" destination="oJo-wu-PpC" id="os5-Xh-G5r"/>
+                <outlet property="lbBtn" destination="h89-xr-KdS" id="u0q-RK-5tE"/>
+                <outlet property="ssBtn" destination="XEe-18-QSS" id="Lny-NC-td6"/>
+                <outlet property="xhBtn" destination="hjJ-Vl-eJi" id="YeP-AT-hQO"/>
+                <outlet property="ybBtn" destination="yt7-h2-usV" id="rSt-2n-Eqc"/>
+                <outlet property="ypBtn" destination="6Vr-DR-EZX" id="bOH-II-iPy"/>
+                <outlet property="zxBtn" destination="6Zf-uF-thW" id="lWZ-Qc-gWi"/>
+            </connections>
+            <point key="canvasLocation" x="65" y="508"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="未选中.png" width="24" height="24"/>
+        <image name="选中.png" width="24" height="24"/>
+    </resources>
+</document>

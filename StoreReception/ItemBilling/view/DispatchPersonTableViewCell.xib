@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="52" id="KGk-i7-Jjw" customClass="DispatchPersonTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJU-68-Dko">
+                        <rect key="frame" x="11" y="0.0" width="38" height="51"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.38431372549019605" green="0.38431372549019605" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qr6-VV-eaa">
+                        <rect key="frame" x="259" y="0.0" width="50" height="51"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="ZHV-MQ-vC8"/>
+                        </constraints>
+                        <state key="normal" image="未选.png"/>
+                        <connections>
+                            <action selector="click:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4bv-Cv-SLu"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Qr6-VV-eaa" secondAttribute="bottom" id="JQr-6P-Oq4"/>
+                    <constraint firstItem="xJU-68-Dko" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="RiX-vc-D8K"/>
+                    <constraint firstItem="Qr6-VV-eaa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Y2m-uJ-qzO"/>
+                    <constraint firstAttribute="trailing" secondItem="xJU-68-Dko" secondAttribute="trailing" id="biQ-zN-Fwn"/>
+                    <constraint firstAttribute="trailing" secondItem="Qr6-VV-eaa" secondAttribute="trailing" constant="11" id="hQ5-CQ-bfC"/>
+                    <constraint firstAttribute="bottom" secondItem="xJU-68-Dko" secondAttribute="bottom" id="la2-E4-eBf"/>
+                    <constraint firstItem="xJU-68-Dko" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="11" id="vOg-SX-x6j"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="biQ-zN-Fwn"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="clickBtn" destination="Qr6-VV-eaa" id="7AJ-VZ-0Ba"/>
+                <outlet property="personL" destination="xJU-68-Dko" id="UBA-Z8-xHJ"/>
+            </connections>
+            <point key="canvasLocation" x="499" y="306"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="未选.png" width="24" height="24"/>
+    </resources>
+</document>

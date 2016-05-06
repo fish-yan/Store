@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment version="1536" identifier="iOS"/>
+        <development version="5000" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1" userLabel="LocateView" customClass="TSLocateView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3" userLabel="LocatePicker">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                </pickerView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="3" secondAttribute="bottom" id="6dt-uM-Auz"/>
+                <constraint firstItem="3" firstAttribute="top" secondItem="1" secondAttribute="top" id="CIO-Pa-FI5"/>
+                <constraint firstItem="3" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="IEp-bt-I12"/>
+                <constraint firstAttribute="trailing" secondItem="3" secondAttribute="trailing" id="TB1-CF-1ea"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="locatePicker" destination="3" id="7"/>
+            </connections>
+        </view>
+    </objects>
+</document>

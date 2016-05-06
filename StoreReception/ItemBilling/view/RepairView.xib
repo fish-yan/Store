@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Nmn-pM-cNm" userLabel="repairView" customClass="RepairView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="292"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="维修.png" translatesAutoresizingMaskIntoConstraints="NO" id="2lh-yt-grW">
+                    <rect key="frame" x="10" y="12" width="16" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="b6H-KM-aUn"/>
+                        <constraint firstAttribute="width" constant="16" id="kKG-Bq-xae"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="维修" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Flc-2Z-c92">
+                    <rect key="frame" x="34" y="11" width="53" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ci-Q9-H70">
+                    <rect key="frame" x="11" y="41" width="298" height="1"/>
+                    <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="KbN-2C-xr5"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8o-UA-yu6">
+                    <rect key="frame" x="274" y="5" width="46" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="QHF-AB-trL"/>
+                        <constraint firstAttribute="width" constant="46" id="fSi-7Z-mf9"/>
+                    </constraints>
+                    <state key="normal" title="添加">
+                        <color key="titleColor" red="0.15686274510000001" green="0.47058823529999999" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="addRepair:" destination="Nmn-pM-cNm" eventType="touchUpInside" id="MDK-ff-kh3"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Doe-lG-y75">
+                    <rect key="frame" x="269" y="47" width="1" height="46"/>
+                    <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="1lC-2T-NZO"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUe-3A-NMc">
+                    <rect key="frame" x="281" y="58" width="28" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="28" id="cVE-17-iwU"/>
+                        <constraint firstAttribute="height" constant="24" id="uvA-Zu-GCc"/>
+                    </constraints>
+                    <state key="normal" title="Button" backgroundImage="拍照-普通.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted" backgroundImage="拍照-点击.png"/>
+                    <connections>
+                        <action selector="click:" destination="Nmn-pM-cNm" eventType="touchUpInside" id="KMS-BT-8Ju"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WNX-If-ncu">
+                    <rect key="frame" x="11" y="98" width="298" height="1"/>
+                    <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="n93-2f-4BE"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KIV-eF-Y13" userLabel="contentView">
+                    <rect key="frame" x="0.0" y="99" width="320" height="183"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拍照记录车辆状况" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QdC-iZ-OBS">
+                    <rect key="frame" x="10" y="62" width="112" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.25490196079999999" green="0.25490196079999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="CUe-3A-NMc" firstAttribute="top" secondItem="1Ci-Q9-H70" secondAttribute="bottom" constant="16" id="1FL-MF-43x"/>
+                <constraint firstAttribute="trailing" secondItem="WNX-If-ncu" secondAttribute="trailing" constant="11" id="3Dm-hb-SGf"/>
+                <constraint firstAttribute="trailing" secondItem="Doe-lG-y75" secondAttribute="trailing" constant="50" id="4eU-Yo-rEI"/>
+                <constraint firstItem="Doe-lG-y75" firstAttribute="top" secondItem="1Ci-Q9-H70" secondAttribute="bottom" constant="5" id="6yM-MQ-Erm"/>
+                <constraint firstItem="QdC-iZ-OBS" firstAttribute="top" secondItem="1Ci-Q9-H70" secondAttribute="bottom" constant="20" id="89l-hV-tOc"/>
+                <constraint firstAttribute="trailing" secondItem="KIV-eF-Y13" secondAttribute="trailing" id="8IX-fh-OQx"/>
+                <constraint firstItem="KIV-eF-Y13" firstAttribute="top" secondItem="WNX-If-ncu" secondAttribute="bottom" id="D8s-I9-lgx"/>
+                <constraint firstItem="1Ci-Q9-H70" firstAttribute="leading" secondItem="Nmn-pM-cNm" secondAttribute="leading" constant="11" id="DpT-Yc-5HB"/>
+                <constraint firstAttribute="trailing" secondItem="CUe-3A-NMc" secondAttribute="trailing" constant="11" id="FAN-XG-DEo"/>
+                <constraint firstItem="1Ci-Q9-H70" firstAttribute="top" secondItem="Flc-2Z-c92" secondAttribute="bottom" constant="12" id="IEv-38-YTh"/>
+                <constraint firstItem="CUe-3A-NMc" firstAttribute="leading" secondItem="Doe-lG-y75" secondAttribute="trailing" constant="11" id="IVY-mr-mBq"/>
+                <constraint firstAttribute="trailing" secondItem="l8o-UA-yu6" secondAttribute="trailing" id="PSS-gx-8y4"/>
+                <constraint firstAttribute="bottom" secondItem="KIV-eF-Y13" secondAttribute="bottom" constant="10" id="PeL-Yn-tvB"/>
+                <constraint firstItem="Doe-lG-y75" firstAttribute="leading" relation="lessThanOrEqual" secondItem="QdC-iZ-OBS" secondAttribute="trailing" constant="155" id="Tbv-aB-ZJV"/>
+                <constraint firstItem="WNX-If-ncu" firstAttribute="top" secondItem="Doe-lG-y75" secondAttribute="bottom" constant="5" id="VfR-vz-D1F"/>
+                <constraint firstItem="QdC-iZ-OBS" firstAttribute="leading" secondItem="Nmn-pM-cNm" secondAttribute="leading" constant="10" id="WwS-ba-IZO"/>
+                <constraint firstItem="WNX-If-ncu" firstAttribute="leading" secondItem="Nmn-pM-cNm" secondAttribute="leading" constant="11" id="YIT-0R-yUi"/>
+                <constraint firstItem="WNX-If-ncu" firstAttribute="top" secondItem="QdC-iZ-OBS" secondAttribute="bottom" constant="20" id="YPv-jW-hZW"/>
+                <constraint firstItem="l8o-UA-yu6" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Flc-2Z-c92" secondAttribute="trailing" constant="187" id="cly-1f-gfs"/>
+                <constraint firstItem="Flc-2Z-c92" firstAttribute="centerY" secondItem="2lh-yt-grW" secondAttribute="centerY" id="fh5-Lh-JsC"/>
+                <constraint firstItem="WNX-If-ncu" firstAttribute="top" secondItem="1Ci-Q9-H70" secondAttribute="top" constant="57" id="iUd-yC-hlb"/>
+                <constraint firstItem="1Ci-Q9-H70" firstAttribute="top" secondItem="Nmn-pM-cNm" secondAttribute="top" constant="41" id="mMZ-9d-0aW"/>
+                <constraint firstItem="KIV-eF-Y13" firstAttribute="leading" secondItem="Nmn-pM-cNm" secondAttribute="leading" id="mPd-LO-TrT"/>
+                <constraint firstItem="2lh-yt-grW" firstAttribute="leading" secondItem="Nmn-pM-cNm" secondAttribute="leading" constant="10" id="n82-iX-Ffu"/>
+                <constraint firstAttribute="trailing" secondItem="1Ci-Q9-H70" secondAttribute="trailing" constant="11" id="qJa-gK-oqn"/>
+                <constraint firstItem="Flc-2Z-c92" firstAttribute="leading" secondItem="2lh-yt-grW" secondAttribute="trailing" constant="8" id="qyD-hL-5BS"/>
+                <constraint firstItem="2lh-yt-grW" firstAttribute="top" secondItem="Nmn-pM-cNm" secondAttribute="top" constant="12" id="weA-tJ-Fg3"/>
+                <constraint firstItem="l8o-UA-yu6" firstAttribute="centerY" secondItem="Flc-2Z-c92" secondAttribute="centerY" id="xOT-vv-3IV"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="contentV" destination="KIV-eF-Y13" id="0qG-9n-oCW"/>
+                <outlet property="lineV" destination="WNX-If-ncu" id="73c-OD-pfj"/>
+                <outlet property="lineVConstraint" destination="iUd-yC-hlb" id="ujb-xw-VAA"/>
+            </connections>
+            <point key="canvasLocation" x="406" y="843"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="拍照-普通.png" width="27" height="24"/>
+        <image name="拍照-点击.png" width="27" height="24"/>
+        <image name="维修.png" width="13" height="16"/>
+    </resources>
+</document>

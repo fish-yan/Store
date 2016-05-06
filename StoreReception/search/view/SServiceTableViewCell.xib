@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="166" id="KGk-i7-Jjw" customClass="SServiceTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="337" height="166"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="337" height="165"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="巴西棕榈腊服务" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DH1-cR-9Zn">
+                        <rect key="frame" x="11" y="12" width="315" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="项目编码    315/65R15LC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgH-qX-YdM">
+                        <rect key="frame" x="11" y="43" width="158" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.64313725490196083" green="0.65098039215686276" blue="0.66274509803921566" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="工时 12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NuS-sy-M93">
+                        <rect key="frame" x="201" y="43" width="47" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.3843137254901961" green="0.3843137254901961" blue="0.3843137254901961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQa-kp-0t4">
+                        <rect key="frame" x="273" y="36" width="53" height="32"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <state key="normal" title="￥1080">
+                            <color key="titleColor" red="1" green="0.17254901960784313" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMg-5f-hv0" userLabel="lineView">
+                        <rect key="frame" x="11" y="71" width="309" height="1"/>
+                        <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="1WI-Ou-nHm"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="DH1-cR-9Zn" secondAttribute="trailing" constant="11" id="089-gx-W7m"/>
+                    <constraint firstAttribute="trailing" secondItem="cMg-5f-hv0" secondAttribute="trailing" constant="17" id="1ox-Du-e8V"/>
+                    <constraint firstItem="NuS-sy-M93" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bgH-qX-YdM" secondAttribute="trailing" constant="15" id="428-k6-lbf"/>
+                    <constraint firstItem="bgH-qX-YdM" firstAttribute="top" secondItem="DH1-cR-9Zn" secondAttribute="bottom" constant="10" id="4Jx-Qa-PKI"/>
+                    <constraint firstItem="DH1-cR-9Zn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="11" id="9C8-Td-Qv1"/>
+                    <constraint firstItem="bgH-qX-YdM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="11" id="9NV-VH-OcN"/>
+                    <constraint firstAttribute="trailing" secondItem="CQa-kp-0t4" secondAttribute="trailing" constant="11" id="KHB-TB-of7"/>
+                    <constraint firstItem="DH1-cR-9Zn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Lzg-x6-fJK"/>
+                    <constraint firstItem="cMg-5f-hv0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="11" id="S8v-OV-WCt"/>
+                    <constraint firstItem="CQa-kp-0t4" firstAttribute="leading" secondItem="NuS-sy-M93" secondAttribute="trailing" constant="25" id="a2Z-7p-G29"/>
+                    <constraint firstItem="NuS-sy-M93" firstAttribute="centerY" secondItem="bgH-qX-YdM" secondAttribute="centerY" id="cuK-sc-aNe"/>
+                    <constraint firstItem="CQa-kp-0t4" firstAttribute="centerY" secondItem="NuS-sy-M93" secondAttribute="centerY" constant="0.5" id="jXE-Ho-vZD"/>
+                    <constraint firstItem="cMg-5f-hv0" firstAttribute="top" secondItem="NuS-sy-M93" secondAttribute="bottom" constant="11" id="w7c-Ie-qWa"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lineV" destination="cMg-5f-hv0" id="7lj-OT-ZU1"/>
+                <outlet property="serviceBtn" destination="CQa-kp-0t4" id="Nfb-Hi-jha"/>
+                <outlet property="serviceCountL" destination="NuS-sy-M93" id="Wq8-sq-nRl"/>
+                <outlet property="serviceNL" destination="bgH-qX-YdM" id="JOg-Lf-Y3k"/>
+                <outlet property="serviceNameL" destination="DH1-cR-9Zn" id="zOh-h2-Kmm"/>
+            </connections>
+            <point key="canvasLocation" x="525.5" y="418"/>
+        </tableViewCell>
+    </objects>
+</document>
